@@ -2,7 +2,6 @@
    <head>
        <!-- for css file -->
        <css src="Bss_HelloWorld::css/style.css"/>
-        <script src="Bss_HelloWorld::js/pagination.min.js"/>
     </head> 
     <body>
         <referenceContainer name="content">

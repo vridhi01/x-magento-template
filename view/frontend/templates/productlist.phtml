@@ -21,6 +21,7 @@
    $jsonProductData = $this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($_productCollection);
    ?>
 <input type="text" name="searchdata" id="searchdata" placeholder="Search Product Details"  />  
+<span id="nextValue">next</span><br><span id="PreeValue">Pre</span>
 <div style="margin-top:20px;">
      <table>
       <th>Name</th>
@@ -29,9 +30,7 @@
       <th>Image</th>
    </table>
 </div>
-<div id ="product" >
-  
-</div>
+<div id="list"><div id ="product"></div></div>
 <script id="product-template" type="text/x-magento-template">
    <tr>
        <td><%-data.name %></td>
