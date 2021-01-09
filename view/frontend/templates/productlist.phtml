@@ -1,0 +1,53 @@
+<?php
+   /**
+    * Copyright © Magento, Inc. All rights reserved.
+    * See COPYING.txt for license details.
+    */
+   use Magento\Framework\App\Action\Action;
+   
+   ?>
+<?php
+   // phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+   
+   /**
+    * Product list template
+    *
+    * @var $block \Bss\HelloWorld\Block\Index
+    */
+   ?>
+<?php
+   $_productCollection = $block->getLoadedProductCollection();
+   $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+   $jsonProductData = $this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($_productCollection);
+   ?>
+<input type="text" name="searchdata" id="searchdata" placeholder="Search Product Details"  />  
+<span id="nextValue">next</span><br><span id="PreeValue">Pre</span>
+<div style="margin-top:20px;">
+     <table>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Sku</th>
+      <th>Image</th>
+   </table>
+</div>
+<div id="list"><div id ="product"></div></div>
+<script id="product-template" type="text/x-magento-template">
+   <tr>
+       <td><%-data.name %></td>
+       <td><%-data.price %></td>
+       <td><%-data.sku %></td>
+       <td><img style="height: 69px; width: 76px;" src="http://dev.magento.xmagestore.com/magento2/vridhimagento/pub/media/catalog/product<%-data.image %>"/></td>
+   </tr>
+ 
+</script>
+<script type = "text/x-magento-init">
+   {
+       "*":
+       {
+           "Bss_HelloWorld/js/jstemplate":
+           {
+               "Data": <?php echo $jsonProductData; ?>
+           }
+       }
+   }
+</script>
